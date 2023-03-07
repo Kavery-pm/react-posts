@@ -1,10 +1,12 @@
 import React from "react";
 import Post from "./components/Post";
+import PostsList from "./components/PostsList";
 
 function App() {
   return <React.Fragment>
-    <Post author='shiny' title='hayday'/>
-    <Post  author='kavery' title='mayday'/>
+    <PostsList/>
+  
+    {/* <PostList  author='kavery' title='mayday'/> */}
   </React.Fragment>
 }
 
