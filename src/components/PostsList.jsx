@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Modal from "./Modal";
 import NewPost from "./NewPost";
 import Post from "./Post";
 import classes from './PostsList.module.css';
@@ -14,7 +15,9 @@ setenteredAuthor(event.target.value);
     }
 return (
     <>
+    <Modal>
     <NewPost handleTextAreachange={textChangeHandler} handleAuthorChange={authorChangeHandler}/>
+    </Modal>
     <ul className={classes.posts}>
         <Post author={enteredAuthor} title={enteredtitle}/>
         <Post author='kavery' title='hayday'/>
