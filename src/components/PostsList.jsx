@@ -3,8 +3,8 @@ import Modal from "./Modal";
 import NewPost from "./NewPost";
 import Post from "./Post";
 import classes from './PostsList.module.css';
-const PostsList = ({author,title})=>{
-  const [ismodalVisible, setismodalVisible] = useState(true)
+const PostsList = ({author,title,onCloseModal,ismodalVisible})=>{
+  
     const [enteredtitle, setenteredtitle] = useState('');
     const [enteredAuthor, setenteredAuthor] = useState('')
     const textChangeHandler = (event)=>{
@@ -13,13 +13,11 @@ const PostsList = ({author,title})=>{
     const authorChangeHandler = (event)=>{
 setenteredAuthor(event.target.value);
     }
-    const closeModalHandler = ()=>{
-        setismodalVisible(false);
-    }
+   
 return (
     <>
     {ismodalVisible && 
-    <Modal onCloseModal={closeModalHandler}>
+    <Modal onCloseModal={onCloseModal}>
         <NewPost handleTextAreachange={textChangeHandler} handleAuthorChange={authorChangeHandler}/>
     
  
