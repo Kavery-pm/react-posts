@@ -18,7 +18,7 @@ return (
     <>
     {ismodalVisible && 
     <Modal onCloseModal={onCloseModal}>
-        <NewPost handleTextAreachange={textChangeHandler} handleAuthorChange={authorChangeHandler}/>
+        <NewPost handleTextAreachange={textChangeHandler} handleAuthorChange={authorChangeHandler} onCloseModal={onCloseModal}/>
     
  
     </Modal>}

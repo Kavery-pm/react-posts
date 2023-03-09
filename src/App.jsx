@@ -4,7 +4,7 @@ import Post from "./components/Post";
 import PostsList from "./components/PostsList";
 
 function App() {
-  const [ismodalVisible, setismodalVisible] = useState(true);
+  const [ismodalVisible, setismodalVisible] = useState(false);
   const openModalHandler = () => {
     setismodalVisible(true);
   };
