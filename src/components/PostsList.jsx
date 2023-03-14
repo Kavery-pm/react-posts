@@ -16,6 +16,7 @@ const PostsList = ({ onCloseModal, ismodalVisible }) => {
           <NewPost onCloseModal={onCloseModal} addPost={addPostHandler}/>
         </Modal>
       )}
+      {posts.length>0 &&
       <ul className={classes.posts}>
         {posts.map((item) => (
           <Post
@@ -24,7 +25,12 @@ const PostsList = ({ onCloseModal, ismodalVisible }) => {
             key={posts.authorName}
           />
         ))}
-      </ul>
+      </ul>}
+      {posts.length==0 && <div style={{textAlign:'center',color:'white'}}>
+        <h3>There are no posts</h3>
+        <p>Please start adding some...</p>
+        <p></p>
+        </div>}
     </>
   );
 };
