@@ -7,7 +7,7 @@ const PostsList = ({ onCloseModal, ismodalVisible }) => {
   const [posts, setposts] = useState([]);
   const addPostHandler = (postData) => {
     console.log(postData);
-    setposts([postData,...posts]);
+    setposts((existingPosts)=>[postData,...existingPosts]);
   };
   return (
     <>
