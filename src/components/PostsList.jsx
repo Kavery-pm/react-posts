@@ -2,31 +2,30 @@ import { useState } from "react";
 import Modal from "./Modal";
 import NewPost from "./NewPost";
 import Post from "./Post";
-import classes from './PostsList.module.css';
-const PostsList = ({author,title,onCloseModal,ismodalVisible})=>{
-  
-    const [enteredtitle, setenteredtitle] = useState('');
-    const [enteredAuthor, setenteredAuthor] = useState('')
-    const textChangeHandler = (event)=>{
-        setenteredtitle(event.target.value);
-    }
-    const authorChangeHandler = (event)=>{
-setenteredAuthor(event.target.value);
-    }
-   
-return (
+import classes from "./PostsList.module.css";
+const PostsList = ({ onCloseModal, ismodalVisible }) => {
+  const [posts, setposts] = useState([]);
+  const addPostHandler = (postData) => {
+    console.log(postData);
+    setposts([postData,...posts]);
+  };
+  return (
     <>
-    {ismodalVisible && 
-    <Modal onCloseModal={onCloseModal}>
-        <NewPost handleTextAreachange={textChangeHandler} handleAuthorChange={authorChangeHandler} onCloseModal={onCloseModal}/>
-    
- 
-    </Modal>}
-    <ul className={classes.posts}>
-        <Post author={enteredAuthor} title={enteredtitle}/>
-        <Post author='kavery' title='hayday'/>
-    </ul>
+      {ismodalVisible && (
+        <Modal onCloseModal={onCloseModal}>
+          <NewPost onCloseModal={onCloseModal} addPost={addPostHandler}/>
+        </Modal>
+      )}
+      <ul className={classes.posts}>
+        {posts.map((item) => (
+          <Post
+            author={item.authorName}
+            title={item.postBody}
+            key={posts.authorName}
+          />
+        ))}
+      </ul>
     </>
-)
-}
+  );
+};
 export default PostsList;
