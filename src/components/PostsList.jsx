@@ -10,16 +10,13 @@ const PostsList = ({ onCloseModal, ismodalVisible }) => {
   useEffect(() => {
     fetchPosts();
     }, [])
-    const fetchPosts = ()=>{
-      fetch('http://localhost:8080/posts', {
-        method:'GET',
-     headers:{
-          'Content-type':'application/json'}
-      }).then(response=>response.json()).then(data=>{
-     
-         setposts(data.posts)
-      })
-    }
+  
+    const fetchPosts = async()=>{
+      const response =await fetch('http://localhost:8080/posts')
+      const resData = await response.json();
+         setposts(resData.posts)
+      }
+    
   const addPostHandler = (postData) => {
     
     fetch('http://localhost:8080/posts', {
