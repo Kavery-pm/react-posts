@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import MainHeader from "../components/MainHeader";
-import Post from "../components/Post";
+import React from "react";
+import { Outlet } from "react-router-dom";
 import PostsList from "../components/PostsList";
 
 function Posts() {
   return (
     <React.Fragment>
+      <Outlet/>
       <PostsList />
     </React.Fragment>
   );

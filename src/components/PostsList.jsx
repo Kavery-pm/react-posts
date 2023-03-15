@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Modal from "./Modal";
-import NewPost from "./NewPost";
+import NewPost from "../routes/NewPost";
 import Post from "./Post";
 import classes from "./PostsList.module.css";
 const PostsList = ({ onCloseModal, ismodalVisible }) => {
