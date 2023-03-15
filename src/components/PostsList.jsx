@@ -1,10 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "./Modal";
 import NewPost from "./NewPost";
 import Post from "./Post";
 import classes from "./PostsList.module.css";
 const PostsList = ({ onCloseModal, ismodalVisible }) => {
+
+
   const [posts, setposts] = useState([]);
+  useEffect(() => {
+    fetchPosts();
+    }, [])
+    const fetchPosts = ()=>{
+      fetch('http://localhost:8080/posts', {
+        method:'GET',
+     headers:{
+          'Content-type':'application/json'}
+      }).then(response=>response.json()).then(data=>{
+     
+         setposts(data.posts)
+      })
+    }
   const addPostHandler = (postData) => {
     
     fetch('http://localhost:8080/posts', {
