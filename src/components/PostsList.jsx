@@ -41,7 +41,7 @@ const PostsList = ({ onCloseModal, ismodalVisible }) => {
             <Post
               author={item.authorName}
               title={item.postBody}
-              key={posts.authorName}
+              key={item.id}
             />
           ))}
         </ul>
